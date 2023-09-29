@@ -15,7 +15,9 @@
     padding: 80px;
     gap: 5px;
 }
-
+ h1>span::selection{
+     color: #a0a1a1;
+ }
 .btn{
     cursor: pointer;
     border: 2px solid black;
@@ -137,3 +139,8 @@ h1>span{
     font-size: 90px;
     text-transform: capitalize;
 }
+
+
+ h1 span2::selection{
+     color: ##28BAF9;
+ }
