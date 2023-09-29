@@ -118,7 +118,7 @@ h1>.span2::selection{
     color: #28BAF9;
 }
 
-h1>span::selection{
+h1>.span1::selection{
     color: #a0a1a1;
 }
 
