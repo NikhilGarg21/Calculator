@@ -146,3 +146,11 @@ h1>span{
     font-size: 90px;
     text-transform: capitalize;
 }
+
+
+@media only screen and (max-width:750px){
+    h1>span{
+        font-size : 65px
+    }
+}
+
