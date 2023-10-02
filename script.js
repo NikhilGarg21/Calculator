@@ -1,53 +1,51 @@
-let string = "";
+let userInput = ""; // Variable to store user input as a string
+let result = null; // Variable to store the evaluated result
+
 function evaluateExpression(expression) {
   try {
     console.log(expression);
-    const result = math.evaluate(expression);
-    return result;
+    const res = math.evaluate(expression);
+    return res;
   } catch (error) {
     return "Error: Invalid Expression";
   }
 }
 
 const buttons = document.querySelectorAll(".btn");
-const inputval = document.querySelector("input");
+const inputVal = document.querySelector("input");
 
 document.addEventListener("DOMContentLoaded", function () {
   buttons.forEach((button) => {
     button.addEventListener("click", (e) => {
-      val = inputval.value;
       const buttonValue = e.target.innerHTML;
       if (buttonValue === "=") {
-        if (string == "") {
-          string = evaluateExpression(val);
-          inputval.value = string;
-        }
-         else {
-          string = evaluateExpression(string);
-          inputval.value = string;
+        if (userInput !== "") {
+          result = evaluateExpression(userInput);
+          inputVal.value = result;
+          userInput = result.toString(); // Store the result as the new user input
         }
       } else if (buttonValue === "C") {
-        string = "";
-        userinput = ""
-        inputval.value = string;
+        userInput = "";
+        result = null;
+        inputVal.value = userInput;
       } else if (buttonValue === "√") {
-        string += "sqrt(";
-        inputval.value = string;
+        userInput += "sqrt(";
+        inputVal.value = userInput;
       } else if (buttonValue === "π") {
-        string += "*3.14";
-        inputval.value = string;
+        userInput += "*3.14";
+        inputVal.value = userInput;
       } else if (buttonValue === "°") {
-        string += "deg";
-        inputval.value = string;
+        userInput += "deg";
+        inputVal.value = userInput;
       } else if (buttonValue === "+M") {
-        string = string.slice(0 , string.length-1) + "-" + string.slice(string.length -1 ) ;
-        inputval.value = string;
+        userInput = userInput.slice(0, userInput.length - 1) + "-" + userInput.slice(userInput.length - 1);
+        inputVal.value = userInput;
       } else if (buttonValue === "-M") {
-        string = string.slice(0 , string.length-1) + "-" + string.slice(string.length -1 ) ;
-        inputval.value = string;
+        userInput = userInput.slice(0, userInput.length - 1) + "-" + userInput.slice(userInput.length - 1);
+        inputVal.value = userInput;
       } else {
-        string += buttonValue;
-        inputval.value = string;
+        userInput += buttonValue;
+        inputVal.value = userInput;
       }
     });
   });
@@ -55,6 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 crossButton = document.querySelector(".cross");
 crossButton.addEventListener("click", () => {
-  string = string.slice(0, string.length - 1);
-  inputval.value = string;
+  userInput = userInput.slice(0, userInput.length - 1);
+  inputVal.value = userInput;
 });
